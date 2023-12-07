@@ -1,5 +1,5 @@
 "use client"
-// pages/spells.js
+
 import { useState, useEffect } from 'react';
 
 const SpellCard = ({ spell }) => { //Nice little card for all the spells
@@ -32,7 +32,6 @@ const SpellCard = ({ spell }) => { //Nice little card for all the spells
           <p>
             <strong>Description:</strong> {spellDetails.desc}
           </p>
-          {/* Add more details as needed */}
         </div>
       )}
     </div>
@@ -44,7 +43,7 @@ const Spells = () => {
   const [filteredSpells, setFilteredSpells] = useState([]);
   const [filter, setFilter] = useState({ level: null, name: '' }); // Set the initial level to null
   const [selectedLevel, setSelectedLevel] = useState(null); // Set the initial level to null
-  const [selectedSchool, setSelectedSchool] = useState(null);
+  const [selectedSchool, setSelectedSchool] = useState(null); //Null be like
 
   useEffect(() => {
     const fetchSpells = async () => {
@@ -77,13 +76,13 @@ const Spells = () => {
   const handleLevelChange = (e) => {
     const selectedValue = e.target.value;
     setSelectedLevel(selectedValue === 'any' ? null : parseInt(selectedValue));
-    setFilter((prevFilter) => ({ ...prevFilter, level: selectedValue === 'any' ? null : parseInt(selectedValue) }));
+    //setFilter((prevFilter) => ({ ...prevFilter, level: selectedValue === 'any' ? null : parseInt(selectedValue) })); Woohoo redundant copy-paste code
   };
 
   const handleSchoolChange = (e) => {
     const selectedValue = e.target.value;
-    setSelectedSchool(selectedValue === 'any' ? null : selectedValue); // Set selected school directly
-    setFilter((prevFilter) => ({ ...prevFilter, school: selectedValue === 'any' ? null : selectedValue }));
+    setSelectedSchool(selectedValue === 'any' ? null : selectedValue);
+    //setFilter((prevFilter) => ({ ...prevFilter, school: selectedValue === 'any' ? null : selectedValue }));
   }
 
   
